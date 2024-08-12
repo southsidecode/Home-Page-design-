@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCool - Effortless Cooling</title>
+    <!-- MDBootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* General Styles */
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Fade-in Animation for Page Load */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #212121;
+            padding: 10px 0;
+        }
+
+        .header .navbar-brand {
+            color: #ffffff;
+            font-size: 24px;
+        }
+
+        .header .nav-link {
+            color: #ffffff;
+        }
+
+        /* Main Section Styles */
+        .main-section {
+            background-image: url('https://images.unsplash.com/photo-1534422298395-8916b9a09a64');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            animation: slideIn 1s ease-in-out forwards;
+        }
+
+        .main-section h1,
+        .main-section p {
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        .main-section .fan-image {
+            max-width: 500px;
+            margin: 30px auto;
+            transition: transform 0.3s ease;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .main-section .fan-image:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .main-section .explore-btn {
+            background-color: #007bff;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-size: 18px;
+            color: #ffffff;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 1.5s;
+        }
+
+        .main-section .explore-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .connector-section {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            max-width: 200px;
+            opacity: 0;
+            animation: fadeInRight 1s ease forwards;
+            animation-delay: 2s;
+        }
+
+        .connector-section img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+
+        /* Lower Section Styles */
+        .lower-section {
+            background-color: #333333;
+            padding: 50px 0;
+            text-align: center;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 2.5s;
+        }
+
+        .lower-section img {
+            max-width: 300px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .lower-section img:hover {
+            transform: rotate(5deg);
+        }
+
+        .lower-section .discover-btn {
+            background-color: #ff5722;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-size: 18px;
+            color: #ffffff;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .lower-section .discover-btn:hover {
+            background-color: #e64a19;
+            transform: scale(1.1);
+        }
+
+        .lower-section .profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 3s;
+        }
+
+        .lower-section .profile img {
+            border-radius: 50%;
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .lower-section .profile p {
+            margin: 0;
+            font-size: 14px;
+            max-width: 300px;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                transform: translateX(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .connector-section {
+                position: static;
+                transform: none;
+                max-width: 100%;
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            .main-section h1 {
+                font-size: 32px;
+            }
+
+            .main-section p {
+                font-size: 18px;
+            }
+
+            .main-section .fan-image {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-section {
+                padding: 50px 0;
+            }
+
+            .lower-section img {
+                max-width: 200px;
+            }
+
+            .lower-section .profile {
+                flex-direction: column;
+            }
+
+            .lower-section .profile img {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header fade-in">
+        <nav class="navbar navbar-expand-lg navbar-dark container">
+            <a class="navbar-brand" href="#">TechCool</a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Catalog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Bestsellers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cooler Finds</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reviews</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <section class="main-section fade-in">
+        <div class="container">
+            <h1 class="display-4">Effortless Cooling</h1>
+            <p class="lead">Cutting-edge cooler designs.</p>
+            <img src="https://images.unsplash.com/photo-1616591017851-114c21cf85b5" class="fan-image" alt="Cooling Fan">
+            <button class="explore-btn btn">Explore Catalog</button>
+        </div>
+        <div class="connector-section">
+            <img src="https://via.placeholder.com/100" alt="Connector">
+            <h5>Reinforced connectors</h5>
+            <p>4-Pin PWM</p>
+        </div>
+    </section>
+
+    <!-- Lower Section -->
+    <section class="lower-section fade-in">
+        <div class="container">
+            <h2>Explore Rapid Cooling Technology</h2>
+            <img src="https://via.placeholder.com/300" alt="Cooling Tower">
+            <button class="discover-btn btn">Discover Now</button>
+
+            <div class="profile">
+                <img src="https://via.placeholder.com/50" alt="Profile Picture">
+                <p>With worldwide delivery, we bring our top-notch cooling solutions to customers across the globe.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MDBootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.js"></script>
+</body>
+
+</html>
